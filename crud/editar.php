@@ -43,19 +43,19 @@ $leng_usu = $stm->fetchAll();
             <div class="formulario_input_label">
                 <label class="formulario_input_label__label" for="nombre">Nombres</label>
                 <input type="hidden" name="id_usuario" value="<?=$id_usuario?>">
-                <input class="formulario_input_label__input"s type="text" id="nombre" name="nombre" placeholder="Nombre" required value="<?=$usuario['nombre']?>">
+                <input class="formulario_input_label__input"s type="text" id="nombre" name="nombre" placeholder="Nombre" required pattern="^[A-Za-z\s]+$" value="<?=$usuario['nombre']?>">
             </div>
             <div class="formulario_input_label">
                 <label class="formulario_input_label__label" for="apellido">Apellido</label>
-                <input class="formulario_input_label__input" type="text" id="apellido" name="apellido" placeholder="Apellido" required value="<?=$usuario['apellido']?>">
+                <input class="formulario_input_label__input" type="text" id="apellido" name="apellido" placeholder="Apellido" required pattern="^[A-Za-z\s]+$" value="<?=$usuario['apellido']?>">
             </div>
             <div class="formulario_input_label">
                 <label class="formulario_input_label__label" for="correo">Correo</label>
-                <input class="formulario_input_label__input" type="text" id="correo" name="correo" placeholder="Correo" required value="<?=$usuario['correo']?>">
+                <input class="formulario_input_label__input" type="text" id="correo" name="correo" placeholder="Correo" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" value="<?=$usuario['correo']?>">
             </div>
             <div class="formulario_input_label">
                 <label class="formulario_input_label__label" for="fecha_nacimiento">Fecha Nacimiento</label>
-                <input class="formulario_input_label__input" type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="<?=$usuario['fecha_nacimiento']?>">
+                <input class="formulario_input_label__input" type="date" id="fecha_nacimiento" name="fecha_nacimiento" required pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}" value="<?=$usuario['fecha_nacimiento']?>">
             </div>
     
             <div class="formulario_input_label">
@@ -83,7 +83,7 @@ $leng_usu = $stm->fetchAll();
                         <label class="formulario_input_label__label"
                         for="generos<?=$value['id_genero']?>"><?= $value['genero'] ?>
                             <input type="radio" name="id_genero" value="<?=$value['id_genero']?>" id="generos<?=$value['id_genero']?>"
-                            <?= $usuario['id_genero'] == $value['id_genero'] ? 'checked' : ''; ?>>
+                            <?= $usuario['id_genero'] == $value['id_genero'] ? 'checked' : ''; ?> required>
                         </label>
                     </div>
                 <?php
